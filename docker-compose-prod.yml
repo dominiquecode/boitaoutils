@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile_prod
+    image: webapp:prod
+
+    command: python manage.py runserver 0.0.0.0:8000 --settings=src.settings.prod
+
+    volumes:
+      - .:/code
+      - src-data:/code
+    ports:
+      - "12000:8000"
+
+volumes:
+    src-data:
+

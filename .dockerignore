@@ -1,0 +1,12 @@
+# les fichiers a ne pas envoyer dans les containers
+
+.idea
+docker-compose-prod.yml
+docker-compose.yml
+README.md
+.gitignore
+.dockerignore
+Dockerfile
+Dockerfile_prod
+.git
+LICENSE
