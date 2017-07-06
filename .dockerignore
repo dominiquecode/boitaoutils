@@ -10,3 +10,4 @@ Dockerfile
 Dockerfile_prod
 .git
 LICENSE
+db2.sqlite3

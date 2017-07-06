@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App</title>
+</head>
+<body>
+    <p><h2>Bienvenue !</h2></p>
+    <p><h4>Ce qu'il vous reste à faire ...</h4></p>
+    <ul>
+        <li>Ajouter un admin avec un vrai mot de passe en cliquant sur le bouton ADMIN</li>
+        <li>Cliquez sur <a href="{% url 'admin:index' %}">ADMIN</a></li>
+        <li>Supprimer "testapp" et ajouter vos applications de projet</li>
+        <li>Avoir du plaisir à développer :-)</li>
+    </ul>
+    <p><h4>Si vous voulez utiliser Docker ...</h4></p>
+    <ul>
+        <li>Utiliser la commande "docker-compose up" pour une version avec debug</li>
+        <li>Utiliser la commande "docker-compose -f docker-compose-prod pour une version sans debug</li>
+    </ul>
+
+    <p><h4>À suivre ...</h4></p>
+</body>
+</html>
