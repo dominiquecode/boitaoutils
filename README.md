@@ -1,16 +1,16 @@
-# {{appname}}
+# Django-base
 
-#### Test {{appname}}
+#### Test 
 
 Ces fichiers sont encore en développement et ne peuvent servir à quiconque pour le moment.
 La version publique sera taguée V.1.0.0 lorsque prête.
 
 ### Présentation
-Les outils présentés sur ce site sont d'usage privé et très local.
+Ce gabarit permet de créer facilement une application Django prête pour un déploiement avec Docker.
 
-Un outil de suivi de frais liés à l'usage d'une voiture
+Il contient la version DEV et la version PROD avec les fichiers "settings", "dockerfile", "docker-compose" correspondants.
 
-Un outil de gestion des photos en local.
+#### CI/CD
 
 Cette application fonctionne en mode autobuild avec Docker Hub (domidocker/boitaoutils)
 La procédure reste standard : 
