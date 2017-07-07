@@ -14,10 +14,10 @@ Il contient la version DEV et la version PROD avec les fichiers "settings", "doc
 
 Cette application fonctionne en mode autobuild avec Docker Hub (domidocker/boitaoutils)
 La procédure reste standard : 
-. mise à jour dans Pycharm
-. commit les modifications
-. push vers le repos Github
-. l'image dans Docker Hub se met à jour en automatique
+* mise à jour dans Pycharm
+* commit les modifications
+* push vers le repos Github
+* l'image dans Docker Hub se met à jour en automatique
 
 ### Remarques
 Tous les fichiers sont publics 
