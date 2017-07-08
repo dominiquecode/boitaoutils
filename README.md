@@ -130,3 +130,5 @@ La procédure reste standard :
 Tous les fichiers sont publics 
 Aucune restriction sur leur utilisation. Lire la licence au besoin.
 Cette application sert à l'apprentissage de Python et Django.
+
+Dernière version mise à jour le 2017-07-08
