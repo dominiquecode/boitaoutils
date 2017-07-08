@@ -12,8 +12,11 @@ Il contient la version DEV et la version PROD avec les fichiers "settings", "doc
 
 #### Version DEV
 Dans cette version le volume est lié avec le répertoire courant pour refléter l'évolution du code en développement
+
+
+#### fichier Dockerfile local
+
 `
-# fichier Dockerfile local
 FROM python:3.4
 
 ENV PYTHONUNBUFFERED 1
@@ -35,8 +38,9 @@ EXPOSE 8080:8000
 
 CMD python manage.py runserver 0.0.0.0:8000 --settings=src.settings.local
 `
-`
-# fichier docker-compose local
+
+
+#### fichier docker-compose local
 Les volumes liés sont le répertoire courant et le volume nommé src-db
 
 `
@@ -63,8 +67,11 @@ volumes:
 
 #### Version PROD
 Dans cette version pas de lien avec le répertoire courant pour ne pas modifier la version même lors du développement du code
+
+
+##### fichier Dockerfile Production
+
 `
-# fichier Dockerfile Production
 FROM python:3.4
 
 ENV PYTHONUNBUFFERED 1
@@ -85,9 +92,9 @@ EXPOSE 8081:8000
 CMD python manage.py runserver 0.0.0.0:8000 --settings=src.settings.prod
 `
 
-`
-# fichier docker-compose version PROD
+##### fichier docker-compose version PROD
 
+`
 version: '3'
 services:
 

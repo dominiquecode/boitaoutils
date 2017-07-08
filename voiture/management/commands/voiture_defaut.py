@@ -2,6 +2,8 @@ from django.core.management.base import BaseCommand, CommandError
 from voiture.models import Voiture
 from datetime import datetime
 
+# TODO Tester la réponse de la commande
+
 
 class Command(BaseCommand):
 
@@ -24,7 +26,7 @@ class Command(BaseCommand):
             except:
                 raise CommandError("Problème de création de l'auto par défaut")
 
-            voiture.save()
+            # voiture.save()
             self.stdout.write(self.style.SUCCESS(self.message_ok))
         else:
             self.stdout.write(self.style.ERROR(self.message_no))
