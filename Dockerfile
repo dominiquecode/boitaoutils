@@ -1,4 +1,5 @@
-# fichier Dockerfile local
+# fichier Dockerfile DEV
+
 FROM python:3.4
 
 ENV PYTHONUNBUFFERED 1

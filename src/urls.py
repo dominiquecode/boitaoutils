@@ -1,4 +1,4 @@
-"""src URL Configuration
+"""boitaoutils URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -13,11 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
-from . import views as src_views
+from . import views
+
 
 urlpatterns = [
-    url(r'^$', src_views.home, name='home'),
+    url(r'^$', views.home, name="home"),
+    url(r'^voiture/', include('voiture.urls', namespace='voiture')),
+    url(r'^photos/', include('photos.urls', namespace='photos')),
     url(r'^admin/', admin.site.urls),
 ]

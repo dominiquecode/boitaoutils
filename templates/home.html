@@ -1,24 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>App</title>
-</head>
-<body>
-    <p><h2>Bienvenue !</h2></p>
-    <p><h4>Ce qu'il vous reste à faire ...</h4></p>
-    <ul>
-        <li>Ajouter un admin avec un vrai mot de passe en cliquant sur le bouton ADMIN</li>
-        <li>Cliquez sur <a href="{% url 'admin:index' %}">ADMIN</a></li> (Par défaut login : admin  Pswd : pass)
-        <li>Supprimer "testapp" et ajouter vos applications de projet</li>
-        <li>Avoir du plaisir à développer :-)</li>
-    </ul>
-    <p><h4>Si vous voulez utiliser Docker ...</h4></p>
-    <ul>
-        <li>Utiliser la commande "docker-compose up" pour une version avec debug</li>
-        <li>Utiliser la commande "docker-compose -f docker-compose-prod pour une version sans debug</li>
-    </ul>
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-    <p><h4>À suivre ...</h4></p>
-</body>
-</html>
+{% block contenu %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                  <img src="{% static 'img/bo.png' %}" alt="Boite à outils" align="left" width="300" height="196">
+            </div>
+            <div class="col-sm-4">
+                <h2>Boite à outils</h2>
+                <p>
+                    Les outils informatiques pour rendre la vie quotidienne plus simple.
+                    C'est un site en devenir. Plus l'habileté du programmeur va augmenter,
+                    plus les outils vont prendre de l'ampleur.
+                </p>
+            </div>
+            <div class="col-sm-5">
+                <p><h2>Choisir</h2></p>
+                liste des applications disponibles<br><br>
+
+                <div class="btn-group-vertical" role="button" aria-label="...">
+                    <a class="btn btn-primary" href="{% url 'voiture:home' %}">Voiture</a>
+                    <a class="btn btn-primary" href="{% url 'photos:home' %}">Photos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

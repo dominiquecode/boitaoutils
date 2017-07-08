@@ -1,3 +1,5 @@
+# fichier docker-compose version PROD
+
 version: '3'
 services:
 
@@ -11,10 +13,9 @@ services:
     command: python manage.py runserver 0.0.0.0:8000 --settings=src.settings.prod
 
     volumes:
-      - src-data:/code
+      - src-db:/code
     ports:
       - "8081:8000"
 
 volumes:
-    src-data:
-
+    src-db:

@@ -1,3 +1,5 @@
+# fichier docker-compose version DEV
+
 version: '3'
 services:
 
@@ -10,11 +12,11 @@ services:
 
     volumes:
       - .:/code
-      - src-data:/code
+      - src-db:/code
 
     ports:
       - "8080:8000"
 
 volumes:
-    src-data:
+    src-db:
 
