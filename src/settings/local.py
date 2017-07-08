@@ -25,7 +25,10 @@ SECRET_KEY = 'lka@gj)vd4qbqm!p^#-=b)q5^bzwt_8hxp26k^#s7ng3dt1y@b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1',
+                 'localhost',
+                 'nas.tradom.ca'
+                 ]
 
 
 # Application definition
@@ -57,7 +60,7 @@ ROOT_URLCONF = 'src.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../templates')]
+        'DIRS': [os.path.join(os.path.dirname(BASE_DIR), 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -80,7 +83,7 @@ WSGI_APPLICATION = 'src.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../db2.sqlite3')
+        'NAME': os.path.join(os.path.dirname(BASE_DIR), 'db.sqlite3')
     }
 }
 
@@ -129,5 +132,5 @@ if DEBUG:
     STATICFILES_DIRS = (
         os.path.join(os.path.dirname(BASE_DIR), 'static'),
 )
-# STATIC_ROOT = os.path.join(BASE_DIR, '../static_prod')
+
 
