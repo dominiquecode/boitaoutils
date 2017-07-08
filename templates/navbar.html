@@ -1,0 +1,13 @@
+        {# la barre de navigation standard #}
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Accueil</a>
+                    <a class="navbar-brand" href="{% url 'voiture:home' %}">Voiture</a>
+                    <a class="navbar-brand" href="{% url 'photos:home' %}">Photos</a>
+                </div>
+                <div id="navbar" class="navbar-right">
+                    <a class="navbar-brand" href="{% url 'admin:index' %}">Administration</a>
+                </div>
+            </div>
+        </nav>

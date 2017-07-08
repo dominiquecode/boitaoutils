@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block contenu %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                  <img src="{% static 'voiture/img/voiture.jpg' %}" alt="" width="250" height="196">
+            </div>
+            <div class="col-sm-4">
+                <h2>Gestion Voiture</h2>
+                <p>
+                    Un bon moyen de suivre les coûts de la voiture<br>
+                    Les données présentées sont mise à jour à chaque ouverture du site<br>
+                    Le suivi se fait sur le kilométrage, la consommation moyenne au 100 Km ainsi que sur les coûts
+                    de carburant et d'entretien.
+                </p>
+            </div>
+            <div class="col-sm-5">
+                <h2>Choisir une action</h2><br>
+                <div class="btn-group-vertical" role="button" aria-label="...">
+                    <a class="btn btn-primary" href="{% url 'voiture:conso' %}">Consommation</a>
+                    <a class="btn btn-primary" href="{% url 'voiture:entretien' %}">Entretien</a>
+                    <a class="btn btn-primary" href="{% url 'voiture:cout' %}">Coûts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

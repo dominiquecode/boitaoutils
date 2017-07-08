@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block contenu %}
+    <div class="container">
+      <div class="row">
+            <div class="col-sm-3">
+                <h2>Informations</h2>
+                <p>C'est le suivi de la consommation de l'auto dénomée : {{ voiture }}</p>
+                <ul>
+                    <li>Marque : {{ voiture.marque }}</li>
+                    <li>Type : {{ voiture.type }} </li>
+                    <li>Année : {{ voiture.annee }}</li>
+                    <li>Odomètre à l'achat : {{ voiture.odometre_depart }}</li>
+                    <li>Achetée le : {{ voiture.date_achat }}</li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                  <h2>Résume consommation</h2>
+                    {% if conso %}
+                        <p>Le kilométrage actuel est maintenant de : {{ odometre_actuel }} Km</p>
+                        <p>Vous avez parcouru {{ parcours }} Km depuis l'achat du véhicule</p>
+                        <p>La consommation moyenne est : {{ conso }} litres aux 100 Km</p>
+                        <p>Pour un coût total de carburant de : {{ couts_carburant }} $</p>
+                    {% else %}
+                        <p>Aucune consommation pour le moment</p>
+                    {% endif %}
+
+
+          </div>
+          <div class="col-sm-5">
+              <h2>Ajouter une consommation</h2>
+              <form action="" method="post">{% csrf_token %}
+                  {{ form.as_p }}
+                  <input type="submit" value="Confirmer" class="btn btn-primary">
+              </form>
+          </div>
+      </div>
+    </div>
+{% endblock %}

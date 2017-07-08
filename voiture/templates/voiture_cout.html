@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block contenu %}
+    <div class="container">
+      <div class="row">
+            <div class="col-sm-3">
+                <h2>Informations</h2>
+                <p>C'est le suivi des coûts de l'auto dénomée : {{ voiture }}</p>
+                <ul>
+                    <li>Marque : {{ voiture.marque }}</li>
+                    <li>Type : {{ voiture.type }} </li>
+                    <li>Année : {{ voiture.annee }}</li>
+                    <li>Achetée le : {{ voiture.date_achat }}</li>
+                    <li>Odomètre à l'achat : {{ voiture.odometre_depart }} Km</li>
+                    <li>Prix d'achat : {{ voiture.cout_achat }} $</li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+              <h2>Récapitulatif</h2>
+                <p>La répartition des coûts d'utilisation</p>
+                <ul>
+                    <li>Odomètre : {{ odometre_actuel }} Km</li>
+                    <li>Distance parcourue : {{ parcours }} Km</li>
+                    <li>Cout de carburant : {{ couts_carburant }} $</li>
+                    <li>Coût d'entretien : {{ cout_entretien }} $</li>
+                </ul>
+                <p><h4>Coût d'exploitation actuel : {{ cout_exploitation }} $</h4></p>
+                <p><h4>Coût complet actuel : {{ cout_total }} $</h4></p>
+                <p><h4>Coût annuel moyen : {{ cout_moyen_annuel }} $</h4></p>
+          </div>
+          <div class="col-sm-5">
+              <h2>Détails de l'entretien</h2>
+              {% for entretien in liste_entretiens %}
+                  <ul>
+                      <li>{{ entretien.date_frais}} : {{ entretien.description}}  ({{ entretien.montant }} $)</li>
+                  </ul>
+              {% empty %}
+                  <p>Aucun entretien pour le moment</p>
+              {% endfor %}
+          </div>
+      </div>
+    </div>
+{% endblock %}

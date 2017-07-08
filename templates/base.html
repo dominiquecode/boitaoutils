@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<html>
+    <header>
+    {% include 'header.html' %}
+
+    </header>
+
+    <body>
+        {% include 'navbar.html' %}
+
+{#        {% include 'jumbotron.html' %}#}
+
+        <hr>
+        <hr>
+
+        {% block contenu %}
+
+        {% endblock %}
+
+        <hr>
+
+{#        {% include 'espace.html' %}#}
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src={% static 'bootstrap/js/bootstrap.js' %}></script>
+    </body>
+
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+</html>
