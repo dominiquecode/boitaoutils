@@ -10,6 +10,7 @@ class CalculCouts:
     """
     def __init__(self, voiture):
         self._voiture = voiture
+        self._qte_carburant_totale = 0
         self._cout_consos = 0
         self._liste_entretiens = []
         self._liste_consos = []
@@ -46,28 +47,32 @@ class CalculCouts:
         else:
             return 0
 
-    def get_km_intermediaire_parcourus(self):
-        list_2_dernier = self.get_liste_consos()[0:2]
-        print(list_2_dernier)
-        return list_2_dernier
+    def get_odo_precedent(self):
+        list_avant_dernier = list(self.get_liste_consos())
+        avant_derniere_conso = list_avant_dernier[0]
+        return avant_derniere_conso.odometre
 
     def get_liste_consos(self):
         self._liste_consos = list(Consommation.objects.all().filter(voiture_id=self._voiture))
         return self._liste_consos
 
-    def get_cout_carburant(self):
+    def get_cout_carburant_total(self):
         self._cout_consos = 0
-        consos = list(Consommation.objects.all().filter(voiture_id=self._voiture))
-        for conso in consos:
+        for conso in self.get_liste_consos():
             cout = conso.quantite_essence * conso.prix_litre
             self._cout_consos += cout
         return self._cout_consos
 
+    def get_qte_carburant_totale(self):
+        self._qte_carburant_totale = 0
+        for conso in self.get_liste_consos():
+            qte = conso.quantite_essence
+            self._qte_carburant_totale += qte
+        return self._qte_carburant_totale
+
     def get_conso_moyenne(self):
-        valeur = self._voiture.consommation_set.aggregate(essence_max=Sum('quantite_essence'))
-        if valeur.get('essence_max') is not None and self.get_km_total_parcourus() > 0:
-            qte_totale = valeur.get('essence_max')
-            return '{0:.2f}'.format(qte_totale / self.get_km_total_parcourus() * 100)
+        if self.get_odo_precedent() > 0:
+            return '{0:.2f}'.format(self.get_qte_carburant_totale() / self.get_odo_precedent() * 100)
         else:
             return 0
 
@@ -86,7 +91,7 @@ class CalculCouts:
             return 0
 
     def get_cout_exploitation(self):
-        return self.get_cout_carburant() + self.get_cout_entretien()
+        return self.get_cout_carburant_total() + self.get_cout_entretien()
 
     def get_cout_complet(self):
         return self.get_cout_exploitation() + self.prix_achat

@@ -32,7 +32,7 @@ def conso(request, pk_voiture=1):
                 'odometre_actuel': voiture_actuelle.get_odo_actuel(),
                 'parcours': voiture_actuelle.get_km_total_parcourus(),
                 'conso': voiture_actuelle.get_conso_moyenne(),
-                'couts_carburant': '{0:.2f}'.format(voiture_actuelle.get_cout_carburant()),
+                'couts_carburant': '{0:.2f}'.format(voiture_actuelle.get_cout_carburant_total()),
                 'form': form,
                 }
 
@@ -86,7 +86,7 @@ def cout(request, pk_voiture=1):
     context = {'voiture': voiture_actuelle.get_voiture(),
                'odometre_actuel': voiture_actuelle.get_odo_actuel(),
                'parcours': voiture_actuelle.get_km_total_parcourus(),
-               'couts_carburant': '{0:.2f}'.format(voiture_actuelle.get_cout_carburant()),
+               'couts_carburant': '{0:.2f}'.format(voiture_actuelle.get_cout_carburant_total()),
                'conso': voiture_actuelle.get_conso_moyenne(),
                'liste_entretiens': voiture_actuelle.get_liste_entretiens(),
                'cout_entretien': voiture_actuelle.get_cout_entretien(),
