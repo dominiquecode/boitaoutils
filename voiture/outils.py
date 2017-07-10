@@ -49,11 +49,15 @@ class CalculCouts:
 
     def get_odo_precedent(self):
         list_avant_dernier = list(self.get_liste_consos())
-        avant_derniere_conso = list_avant_dernier[0]
+        try:
+            avant_derniere_conso = list_avant_dernier[-2]
+        except IndexError:
+            return 0
+
         return avant_derniere_conso.odometre
 
     def get_liste_consos(self):
-        self._liste_consos = list(Consommation.objects.all().filter(voiture_id=self._voiture))
+        self._liste_consos = Consommation.objects.all().filter(voiture_id=self._voiture)
         return self._liste_consos
 
     def get_cout_carburant_total(self):
@@ -72,7 +76,7 @@ class CalculCouts:
 
     def get_conso_moyenne(self):
         if self.get_odo_precedent() > 0:
-            return '{0:.2f}'.format(self.get_qte_carburant_totale() / self.get_odo_precedent() * 100)
+            return '{0:.2f}'.format(self.get_qte_carburant_totale() / self.get_odo_precedent() * 100 * 100)
         else:
             return 0
 

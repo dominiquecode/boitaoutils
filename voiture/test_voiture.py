@@ -10,6 +10,7 @@ class VoitureTestCase(TestCase):
 
     def setUp(self):
         self.voiture = Voiture.objects.create(
+            id=1,
             marque="Tesla",
             type= "modèle 3",
             annee=2007,
@@ -40,6 +41,7 @@ class VoitureTestCase(TestCase):
         self.assertEqual(self.calcul.get_km_total_parcourus(), 500)
 
     def test_list_conso(self):
+        liste = list(self.calcul.get_liste_consos())
         self.assertEqual(len(self.calcul.get_liste_consos()), 1)
 
     def test_cout_carburant(self):
@@ -72,7 +74,7 @@ class VoitureTestCase(TestCase):
         self.assertEqual(self.calcul.get_odo_precedent(), 1500)
         self.assertEqual(self.calcul.get_odo_actuel(), 2000)
         self.assertEqual(self.calcul.get_qte_carburant_totale(), 100)
-        self.assertEqual(self.calcul.get_conso_moyenne(), 6.67)
+        self.assertEqual(self.calcul.get_conso_moyenne(), str(6.67))
 
 
 
