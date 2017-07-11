@@ -76,7 +76,7 @@ class CalculCouts:
 
     def get_conso_moyenne(self):
         if self.get_odo_precedent() > 0:
-            return '{0:.2f}'.format(self.get_qte_carburant_totale() / self.get_odo_precedent() * 100 * 100)
+            return self.get_qte_carburant_totale() / self.get_odo_actuel() * 100
         else:
             return 0
 
@@ -103,4 +103,4 @@ class CalculCouts:
     def get_cout_moyen_annuel(self):
         annee_actuelle = int(datetime.now().year)
         nb_annee = annee_actuelle - 2017 + 1
-        return '{0:.2f}'.format(self.get_cout_complet() / nb_annee)
+        return self.get_cout_complet() / nb_annee

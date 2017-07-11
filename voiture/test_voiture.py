@@ -60,7 +60,7 @@ class VoitureTestCase(TestCase):
         self.assertEqual(self.calcul.get_cout_complet(), 10050)
 
     def test_cout_moyen_annuel(self):
-        self.assertEqual(self.calcul.get_cout_moyen_annuel(), '10050.00')
+        self.assertEqual(self.calcul.get_cout_moyen_annuel(), 10050.00)
 
     def test_km_intermediaire_parcourus(self):
         Consommation.objects.create(voiture=self.voiture,
@@ -74,7 +74,7 @@ class VoitureTestCase(TestCase):
         self.assertEqual(self.calcul.get_odo_precedent(), 1500)
         self.assertEqual(self.calcul.get_odo_actuel(), 2000)
         self.assertEqual(self.calcul.get_qte_carburant_totale(), 100)
-        self.assertEqual(self.calcul.get_conso_moyenne(), str(6.67))
+        self.assertEqual(self.calcul.get_conso_moyenne(), 5.00)
 
 
 
